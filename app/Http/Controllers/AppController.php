@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Mail;
 class AppController extends Controller
 {
 
-    public function index(){
-        $places=Ticket::MAX_TICKETS-Ticket::all()->count();
-        $canBuy=Ticket::canBuy();
+    public function index()
+    {
+        $places = Ticket::MAX_TICKETS - Ticket::all()->count();
+        $canBuy = Ticket::canBuy();
         return view('index', compact('places', 'canBuy'));
     }
 
@@ -28,10 +29,12 @@ class AppController extends Controller
         return redirect('/');
     }
 
-    public function isMember(Request $r){
+    public function isMember(Request $r)
+    {
         $r->validate([
             'email' => 'required|email'
         ]);
-        return User::hasTheLowPrice($r->email);
+        $low = User::hasTheLowPrice($r->email);
+        return $low === false ? 0 : $low;
     }
 }
