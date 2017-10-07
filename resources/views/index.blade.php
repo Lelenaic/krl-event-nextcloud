@@ -142,17 +142,29 @@
             <h3>Tarif réduit</h3>
             <p class="price">25€</p>
             <p>Membres de K'rément Libre</p>
-            <a href="#" class="btn btn-lg btn-red">
-                ACHETER
-            </a>
+            @if ($canBuy)
+                <button data-toggle="modal" data-target="#reducedPrice" class="btn btn-lg btn-red">
+                    ACHETER
+                </button>
+            @else
+                <button disabled class="btn btn-lg btn-red">
+                    ACHETER
+                </button>
+            @endif
         </div>
         <div class="col-md-4 col-sm-6">
             <h3>Plein tarif</h3>
             <p class="price">35€</p>
             <p>Non membres</p>
-            <a href="#" class="btn btn-lg btn-red">
-                ACHETER
-            </a>
+            @if ($canBuy)
+                <button data-toggle="modal" data-target="#payModal" onclick="pay()" class="btn btn-lg btn-red">
+                    ACHETER
+                </button>
+            @else
+                <button disabled class="btn btn-lg btn-red">
+                    ACHETER
+                </button>
+            @endif
         </div>
     </div>
     <hr>
@@ -262,7 +274,8 @@
                                     <h4 class="media-heading">12h30 - 14h00</h4>
                                     <h5>Pause déjeuner</h5>
                                     <p>
-                                        Après une matinée bien remplie, un bon repas équilibré pour repartir d'aplomb l'après-midi.
+                                        Après une matinée bien remplie, un bon repas équilibré pour repartir d'aplomb
+                                        l'après-midi.
                                     </p>
                                 </div>
                             </div>
@@ -333,7 +346,8 @@
                                     <h4 class="media-heading">17H00</h4>
                                     <h5>Fin</h5>
                                     <p>
-                                        Fin de ce Workshop vers 17H00, sauf si vous êtes passionnés, il pourrait y avoir du retard ;)<br>
+                                        Fin de ce Workshop vers 17H00, sauf si vous êtes passionnés, il pourrait y avoir
+                                        du retard ;)<br>
                                         Vous serez déjà des pros sur Docker !
                                     </p>
                                 </div>
@@ -356,7 +370,8 @@
                 Si vous avez un problème de paiement, une question sur votre paiement, demande d'annulation etc.
                 Contactez lenaic@lenaic.me. Pour le reste (questions Workshop), utilisez le formulaire ci-dessous.
             </p><br>
-            <form class="form-horizontal" data-toggle="validator" role="form" method="post" action="{{route('contact')}}">
+            <form class="form-horizontal" data-toggle="validator" role="form" method="post"
+                  action="{{route('contact')}}">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label for="name" class="col-sm-3 control-label">Nom<sup>*</sup></label>
@@ -369,7 +384,8 @@
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">E-mail<sup>*</sup></label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="you@youremail.com" required>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="moi@domaine.com"
+                               required>
                         <div class="help-block with-errors pull-right"></div>
                         <span class="form-control-feedback" aria-hidden="true"></span>
                     </div>
@@ -417,5 +433,109 @@
 <script src="/js/jquery.easing.min.js"></script>
 <script src="/js/scrolling-nav.js"></script>
 <script src="/js/validator.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('form#isMember').submit(function (e) {
+            $(':input').prop('disabled', true);
+            $('div#notMember').hide();
+            e.preventDefault();
+            var email = $('input#emailForMemberVerify').val();
+            $.post('{{route('isMember')}}', {email: email, _token: '{{csrf_token()}}'}, function (data) {
+                var response = $.parseJSON(data);
+                $(':input').prop('disabled', false);
+                if (data !== '0') {
+                    $('input#email').val(email).prop('readonly', true);
+                    $('input#name').val(response.name).prop('readonly', true);
+                    $('div#reducedPrice').modal('hide');
+                    $('div#payModal').modal('show');
+                } else {
+                    $('div#notMember').show();
+                }
+            });
+        });
+    });
+
+    function pay() {
+        $('form#pay').show();
+        $('form#pay-reduced').hide();
+    }
+</script>
+
+<!-- Reduced price inscription Modal -->
+<div class="modal fade" id="reducedPrice" tabindex="-1" role="dialog" aria-labelledby="reducedPrice">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Vérification de membre</h4>
+            </div>
+            <form id="isMember">
+                <div class="modal-body">
+                    <div id="notMember" class="alert alert-danger text-center" hidden>
+                        <i class="fa fa-warning fa-2x"></i><br>
+                        Hum, il semblerait que vous ne soyez pas membre de
+                        K'rément Libre. Si vous êtes un membre et que votre mail n'est pas reconnu, veuillez contacter
+                        lenaic@lenaic.me.<br>
+                        Si vous n'êtes pas membre mais que vous souhaitez vous inscrire,
+                        <a href="https://www.krementlibre.org/adherer-ou-soutenir/" target="_blank">cliquez ici</a>.
+                    </div>
+                    Afin de vous inscrire à ce prix là, nous devons vérifier si vous êtes bien un membre de K'rément
+                    Libre.<br>
+                    Merci de bien vouloir entrer l'adresse e-mail avec laquelle vous vous êtes inscris chez nous :
+                    <input class="form-control" type="email" id="emailForMemberVerify" placeholder="moi@domaine.fr"
+                           required/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                    <button class="btn btn-primary">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="payModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Achat de ticket</h4>
+            </div>
+            <form action="{{route('prePay')}}" method="POST">
+                {{csrf_field()}}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Votre nom et prénom :*</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Votre e-mail :*</label>
+                        <input type="email" name="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="payment" id="payment1" value="1" required>
+                            Payer maintenant par carte via Stripe
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="payment" id="payment2" value="2" required>
+                            Payer au Workshop par chèque
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                    <button class="btn btn-success">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

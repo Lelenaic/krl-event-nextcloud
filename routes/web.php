@@ -14,3 +14,6 @@
 Route::get('/', 'AppController@index');
 
 Route::post('/contact', 'AppController@contact')->name('contact');
+Route::post('/isMember', 'AppController@isMember')->name('isMember');
+Route::post('/prePay', 'PaymentController@prePay')->name('prePay');
+Route::get('/pay', 'PaymentController@payForm')->name('pay');

@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Mail;
 
 class AppController extends Controller
 {
-    const MAX_TICKETS=25;
 
     public function index(){
-        $places=static::MAX_TICKETS-Ticket::all()->count();
-        return view('index', compact('places'));
+        $places=Ticket::MAX_TICKETS-Ticket::all()->count();
+        $canBuy=Ticket::canBuy();
+        return view('index', compact('places', 'canBuy'));
     }
 
     public function contact(Request $r)
@@ -25,5 +25,14 @@ class AppController extends Controller
         ]);
         Mail::to('lenaic@lenaic.me')->send(new Contact($r->name, $r->email, $r->message));
         return redirect('/');
+    }
+
+    public function isMember(Request $r){
+        $r->validate([
+            'email' => 'required|email'
+        ]);
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'https://paiement.krementlibre.org/isMember.php?email='.urlencode($r->email));
+        return $res->getBody();
     }
 }
