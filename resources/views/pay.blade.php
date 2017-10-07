@@ -27,7 +27,7 @@
                     <h3 class="panel-title">Cliquez sur le bouton pour continuer</h3>
                 </div>
                 <div class="panel-body text-center">
-                    <form action="{{route('payPost', ['id'=>$ticket->id])}}" id="pay" class="text-center">
+                    <form action="{{route('payPost', ['id'=>$ticket->id])}}" method="POST" id="pay" class="text-center">
                         <script
                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                 data-key="{{config('services.stripe.key')}}"
