@@ -27,14 +27,14 @@
                     <h3 class="panel-title">Cliquez sur le bouton pour continuer</h3>
                 </div>
                 <div class="panel-body text-center">
-                    <form action="{{route('payPost', ['id'=>$ticket->id])}}" id="pay" class="text-center">
+                    <form action="{{route('payPost', ['id'=>$ticket->id])}}" method="POST" class="text-center">
                         <script
                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                 data-key="{{config('services.stripe.key')}}"
-                                data-amount="3500"
+                                data-amount="2500"
                                 data-email="{{$ticket->email}}"
                                 data-name="K'rément Libre"
-                                data-description="Workshop Docker - Plein tarif"
+                                data-description="Workshop Docker - Tarif réduit"
                                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                 data-locale="auto"
                                 data-zip-code="false"

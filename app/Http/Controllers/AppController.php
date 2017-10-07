@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Contact;
 use App\Ticket;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -31,8 +32,6 @@ class AppController extends Controller
         $r->validate([
             'email' => 'required|email'
         ]);
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET', 'https://paiement.krementlibre.org/isMember.php?email='.urlencode($r->email));
-        return $res->getBody();
+        return User::hasTheLowPrice($r->email);
     }
 }

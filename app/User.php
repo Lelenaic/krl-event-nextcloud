@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function hasTheLowPrice($email){
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'https://paiement.krementlibre.org/isMember.php?email=' . urlencode($email));
+        $response=$res->getBody();
+        if ($response=='0'){
+            return false;
+        }else{
+            return $response;
+        }
+    }
 }

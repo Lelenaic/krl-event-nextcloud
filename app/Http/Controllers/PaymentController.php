@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -10,7 +11,7 @@ class PaymentController extends Controller
 {
     public function prePay(Request $r)
     {
-        if (!Ticket::canBuy()){
+        if (!Ticket::canBuy()) {
             return redirect('/');
         }
         $r->validate([
@@ -25,26 +26,61 @@ class PaymentController extends Controller
         if (!$ticket->card) {
             $ticket->valid = true;
         }
-        $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET', 'https://paiement.krementlibre.org/isMember.php?email=' . urlencode($r->email));
-        $ticket->reduced = (bool)$res->getBody();
+        $low = User::hasTheLowPrice($r->email) === false ? false : true;
+        $ticket->reduced = $low;
         $ticket->save();
         if (!$ticket->card) {
             Mail::to($r->email)->send(new \App\Mail\Ticket());
-            return view('check');
-        }else{
-            return view('pay', ['id'=>$ticket->id]);
+            return redirect()->route('check');
+        } else {
+            return redirect()->route('pay', ['id' => $ticket->id]);
         }
     }
 
-    public function payForm($id){
-        if (!Ticket::canBuy()){
+    public function payForm($id)
+    {
+        if (!Ticket::canBuy()) {
             return redirect('/');
         }
-        $ticket=Ticket::find($id);
-        if ($ticket->valid){
-            return redirect('/');
+        $ticket = Ticket::find($id);
+        if (is_null($ticket)) return redirect('/');
+        if ($ticket->valid) return redirect('/');
+        if ($ticket->reduced) {
+            return view('pay_reduced', compact('ticket'));
+        } else {
+            return view('pay', compact('ticket'));
         }
-        return view('pay', compact('ticket'));
+    }
+
+    public function check()
+    {
+        return view('check');
+    }
+
+    public function card()
+    {
+        return view('card');
+    }
+
+    public function pay(Request $r, $id)
+    {
+        $ticket = Ticket::find($id);
+        if (is_null($ticket) || $ticket->valid) return redirect('/');
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
+        $token = $r->stripeToken;
+
+        $customer = \Stripe\Customer::create(array(
+            'email' => $ticket->email,
+            'source' => $token
+        ));
+        $whichPrice = User::hasTheLowPrice($ticket->email);
+        $price = $whichPrice ? 2500 : 3500;
+        $charge = \Stripe\Charge::create(array(
+            'customer' => $customer->id,
+            'amount' => $price,
+            'currency' => 'eur'
+        ));
+        Mail::to($ticket->email)->send(new \App\Mail\Ticket($charge->id));
+        return redirect()->route('card');
     }
 }

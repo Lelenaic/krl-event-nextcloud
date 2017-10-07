@@ -11,14 +11,15 @@ class Ticket extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $_stripeToken;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token=null)
     {
-        //
+        $this->_stripeToken=$token;
     }
 
     /**
@@ -28,7 +29,9 @@ class Ticket extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.registered')
+        return $this->view('mail.registered')->with([
+            'stripe' => $this->_stripeToken
+        ])
         ->from('no-reply@lnc-services.fr')
         ->subject('Inscription Workshop Docker')
             ->replyTo('contact@krementlibre.org');

@@ -24,23 +24,13 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Cliquez sur le bouton pour continuer</h3>
+                    <h3 class="panel-title">Paiement par carte</h3>
                 </div>
                 <div class="panel-body text-center">
-                    <form action="{{route('payPost', ['id'=>$ticket->id])}}" id="pay" class="text-center">
-                        <script
-                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                data-key="{{config('services.stripe.key')}}"
-                                data-amount="3500"
-                                data-email="{{$ticket->email}}"
-                                data-name="K'rément Libre"
-                                data-description="Workshop Docker - Plein tarif"
-                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                data-locale="auto"
-                                data-zip-code="false"
-                                data-currency="eur">
-                        </script>
-                    </form>
+                    <div class="alert alert-success" role="alert">
+                        Merci pour votre inscription, vous allez recevoir un mail de confirmation.
+                        Il contient quelques instructions, merci d'en prendre connaissance.
+                    </div>
                 </div>
             </div>
         </div>
