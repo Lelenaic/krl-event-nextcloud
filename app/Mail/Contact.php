@@ -38,9 +38,11 @@ class Contact extends Mailable
     {
         return $this->view('mail.contact')
             ->with([
-                'body' => $this->_body
-            ])->from($this->_email)
+                'body' => $this->_body,
+                'name' => $this->_name,
+                'email' => $this->_email
+            ])->from('no-reply@lnc-services.fr')
             ->subject('Contact depuis Workshop Docker')
-            ->to('lenaic@lenaic.me');
+            ->replyTo($this->_email);
     }
 }
