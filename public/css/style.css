@@ -21,6 +21,21 @@ a:hover, a:focus, a:active, a:visited {
     text-decoration: none;
 }
 
+input[type="text"] {
+    -moz-box-sizing: border-box;
+    font-size: 16px;
+    height: 100%;
+    padding: 20px;
+    width: 100%;
+}
+input[type="email"] {
+    -moz-box-sizing: border-box;
+    font-size: 16px;
+    height: 100%;
+    padding: 20px;
+    width: 100%;
+}
+
 /* Buttons override */
 .btn {
 	text-transform: uppercase;
