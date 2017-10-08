@@ -366,7 +366,7 @@
     <iframe class="center-block" width="800" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-1.4371356368064883%2C46.67327851895005%2C-1.434238851070404%2C46.67486861701673&amp;layer=mapnik&amp;marker=46.67407357383165%2C-1.435687243938446"></iframe>
     <br/>
-    <small><a href="https://www.openstreetmap.org/?mlat=46.67407&amp;mlon=-1.43569#map=19/46.67407/-1.43569">Afficher une
+    <small><a href="https://www.openstreetmap.org/?mlat=46.67407&amp;mlon=-1.43569#map=19/46.67407/-1.43569" target="_blank">Afficher une
             carte plus grande</a></small>
     <br>
 </div>
