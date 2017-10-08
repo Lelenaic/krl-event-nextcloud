@@ -31,6 +31,7 @@ class PaymentController extends Controller
         $ticket->save();
         if (!$ticket->card) {
             Mail::to($r->email)->send(new \App\Mail\Ticket());
+            Mail::to('guillaume.cheramy@krementlibre.org')->send(new \App\Mail\AdminRegistered($ticket));
             return redirect()->route('check');
         } else {
             return redirect()->route('pay', ['id' => $ticket->id]);
@@ -83,6 +84,7 @@ class PaymentController extends Controller
         $ticket->valid=true;
         $ticket->save();
         Mail::to($ticket->email)->send(new \App\Mail\Ticket($charge->id));
+        Mail::to('guillaume.cheramy@krementlibre.org')->send(new \App\Mail\AdminRegistered($ticket,$charge->id));
         return redirect()->route('card');
     }
 }
