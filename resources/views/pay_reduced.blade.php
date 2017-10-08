@@ -33,7 +33,8 @@
                 <div class="panel-body text-center">
                     <div class="alert alert-info text-center" role="alert">
                         <i class="fa fa-info-circle fa-2x"></i><br>
-                        Vous avez 10 minutes pour confirmer votre paiement.
+                        Vous avez 10 minutes pour confirmer votre paiement.<br>
+                        Vous recevrez un mail de confirmation lorsque vous aurez payé.
                     </div>
                     <form action="{{route('payPost', ['id'=>$ticket->id])}}" method="POST" class="text-center">
                         <script
