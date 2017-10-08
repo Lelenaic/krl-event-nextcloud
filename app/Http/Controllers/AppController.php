@@ -25,7 +25,7 @@ class AppController extends Controller
             'name' => 'required',
             'message' => 'required'
         ]);
-        Mail::to('lenaic@lenaic.me')->send(new Contact($r->name, $r->email, $r->message));
+        Mail::to('guillaume.cheramy@krementlibre.org')->send(new Contact($r->name, $r->email, $r->message));
         return redirect('/');
     }
 
