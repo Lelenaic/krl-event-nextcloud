@@ -65,7 +65,8 @@ class PaymentController extends Controller
     public function pay(Request $r, $id)
     {
         $ticket = Ticket::find($id);
-        if (is_null($ticket) || $ticket->valid) return redirect('/');
+        if ($ticket->valid) return redirect('/');
+        if (is_null($ticket)) die('Erreur, ticket inexistant ou expiré, vous avez été trop long pour payer, veuillez recommencer');
         \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
         $token = $r->stripeToken;
 
