@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Inscription au Workshop Docker de K'rément Libre">
+    <meta name="description" content="Inscription au Workshop Docker de K'Rément Libre">
     <meta name="author" content="Lénaïc Grolleau">
-    <title>K'rément Libre - Workshop Docker</title>
+    <title>K'Rément Libre - Workshop Docker</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
     <!-- Start: Header -->
     <div class="row hero-header" id="home">
         <div class="col-md-7">
-            <h1 class="logo">K'rément Libre</h1>
+            <h1 class="logo">K'Rément Libre</h1>
             <h1>Workshop Docker 2017</h1>
             <h3>Apprenez à utiliser Docker comme un atout dans votre travail</h3>
             <h4>Le samedi 04 Novembre 2017 à la Loco numérique</h4>
@@ -67,7 +67,7 @@
 
         </div>
         <div class="col-md-5 hidden-xs">
-            <img src="img/docker.png" class="rocket animated bounce">
+            <img src="/img/docker.png" class="rocket animated bounce">
         </div>
     </div>
     <!-- End: Header -->
@@ -88,7 +88,7 @@
             <span class="ti-microphone"></span>
             <h3>Intervenant expert</h3>
             <p>
-                Notre intervenant est un professionel et utilise cette technologie au quotidient dans son entreprise.
+                Notre intervenant est un professionel et utilise cette technologie au quotidien dans son entreprise.
                 Il pourraît <span style="font-size: 0.6em;">probablement</span> même faire tourner Docker sur un
                 grille-pain.
             </p>
@@ -108,10 +108,10 @@
     <div class="row me-row content-ct speaker" id="speakers">
         <h2 class="row-title">Notre intervenant</h2>
         <div class="col-md-12">
-            <img src="img/guillaume.png" class="speaker-img">
+            <img src="/img/guillaume.png" class="speaker-img">
             <h3>Guillaume CHÉRAMY</h3>
             <p>
-                Patron d'une entreprise d'hébergement et d'infogérence libre, Président de l'association K'rément Libre
+                Patron d'une entreprise d'hébergement et d'infogérence libre, Président de l'association K'Rément Libre
                 et Professeur à ses heures perdues, rien que ça. Guillaume vous fera découvrir le merveilleux monde
                 de la conteneurisation.
                 Il vous transmettra son savoir dans ce Workshop passionant et instructif.
@@ -141,7 +141,7 @@
         <div class="col-md-4 col-sm-6 col-md-offset-2">
             <h3>Tarif réduit</h3>
             <p class="price">25€</p>
-            <p>Membres de K'rément Libre</p>
+            <p>Membres de K'Rément Libre</p>
             @if ($canBuy)
                 <button data-toggle="modal" data-target="#reducedPrice" class="btn btn-lg btn-red">
                     ACHETER
@@ -327,10 +327,9 @@
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">16H30 - 17H00</h4>
-                                    <h5>Questions</h5>
+                                    <h5>Gardons du temps</h5>
                                     <p>
-                                        Sur ce dernier temps, vous pourrez poser des questions à l'intervenant
-                                        sur Docker.
+                                        Nous conservons du temps pour des questions, ou si une activité dûre plus longtemps.
                                     </p>
                                 </div>
                             </div>
@@ -414,7 +413,7 @@
     </div>
     <div class="row footer-credit">
         <div class="col-md-6 col-sm-6">
-            <p>&copy 2017 <a href="https:/krementlibre.org">K'rément Libre</a> | Sous Licence Apache 2.0.</p>
+            <p>&copy 2017 <a href="https:/krementlibre.org">K'Rément Libre</a> | Sous Licence Apache 2.0.</p>
         </div>
         <div class="col-md-6 col-sm-6">
             <ul class="footer-menu">
@@ -476,12 +475,12 @@
                     <div id="notMember" class="alert alert-danger text-center" hidden>
                         <i class="fa fa-warning fa-2x"></i><br>
                         Hum, il semblerait que vous ne soyez pas membre de
-                        K'rément Libre. Si vous êtes un membre et que votre mail n'est pas reconnu, veuillez contacter
+                        K'Rément Libre. Si vous êtes un membre et que votre mail n'est pas reconnu, veuillez contacter
                         lenaic@lenaic.me.<br>
                         Si vous n'êtes pas membre mais que vous souhaitez vous inscrire,
                         <a href="https://www.krementlibre.org/adherer-ou-soutenir/" target="_blank">cliquez ici</a>.
                     </div>
-                    Afin de vous inscrire à ce prix là, nous devons vérifier si vous êtes bien un membre de K'rément
+                    Afin de vous inscrire à ce prix là, nous devons vérifier si vous êtes bien un membre de K'Rément
                     Libre.<br>
                     Merci de bien vouloir entrer l'adresse e-mail avec laquelle vous vous êtes inscris chez nous :
                     <input class="form-control" type="email" id="emailForMemberVerify" placeholder="moi@domaine.fr"
