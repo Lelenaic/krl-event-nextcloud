@@ -9,7 +9,11 @@
 
     <title>K'rement Libre - Paiement</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous"/>
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,6 +31,10 @@
                     <h3 class="panel-title">Cliquez sur le bouton pour continuer</h3>
                 </div>
                 <div class="panel-body text-center">
+                    <div class="alert alert-info text-center" role="alert">
+                        <i class="fa fa-info-circle fa-2x"></i><br>
+                        Vous avez 10 minutes pour confirmer votre paiement.
+                    </div>
                     <form action="{{route('payPost', ['id'=>$ticket->id])}}" method="POST" class="text-center">
                         <script
                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
