@@ -141,7 +141,7 @@
         <div class="col-md-4 col-sm-6 col-md-offset-2">
             <h3>Tarif réduit</h3>
             <p class="price">25€</p>
-            <p>Membres de K'Rément Libre</p>
+            <p>Membres de K'Rément Libre,<br>Ozérim ou Code2be</p>
             @if ($canBuy)
                 <button data-toggle="modal" data-target="#reducedPrice" class="btn btn-lg btn-red">
                     ACHETER
