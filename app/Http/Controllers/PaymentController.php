@@ -80,6 +80,8 @@ class PaymentController extends Controller
             'amount' => $price,
             'currency' => 'eur'
         ));
+        $ticket->valid=true;
+        $ticket->save();
         Mail::to($ticket->email)->send(new \App\Mail\Ticket($charge->id));
         return redirect()->route('card');
     }
