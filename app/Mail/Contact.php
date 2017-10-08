@@ -41,7 +41,7 @@ class Contact extends Mailable
                 'body' => $this->_body,
                 'name' => $this->_name,
                 'email' => $this->_email
-            ])->from('no-reply@lnc-services.fr')
+            ])->from('no-reply@mail.lenaic.me')
             ->subject('Contact depuis Workshop Docker')
             ->replyTo($this->_email);
     }
