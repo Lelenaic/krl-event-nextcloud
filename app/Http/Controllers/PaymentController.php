@@ -81,10 +81,53 @@ class PaymentController extends Controller
             'amount' => $price,
             'currency' => 'eur'
         ));
-        $ticket->valid=true;
+        $ticket->valid = true;
         $ticket->save();
         Mail::to($ticket->email)->send(new \App\Mail\Ticket($charge->id));
-        Mail::to('contact@krl.lnc.ovh')->send(new \App\Mail\AdminRegistered($ticket,$charge->id));
+        Mail::to('contact@krl.lnc.ovh')->send(new \App\Mail\AdminRegistered($ticket, $charge->id));
         return redirect()->route('card');
+    }
+
+    public function student(Request $r)
+    {
+        if (!Ticket::canBuy()) {
+            return redirect('/');
+        }
+        $r->validate([
+            'name' => 'required',
+            'email' => 'required|email'
+        ]);
+        $ticket = new Ticket();
+        $ticket->name = $r->name;
+        $ticket->email = $r->email;
+        $ticket->card = null;
+        $ticket->valid = true;
+        $ticket->reduced = null;
+        $ticket->save();
+        Mail::to($r->email)->send(new \App\Mail\Ticket());
+        Mail::to('contact@krl.lnc.ovh')->send(new \App\Mail\AdminRegistered($ticket));
+        return redirect()->route('studentPaied');
+    }
+
+    public function studentPaied(){
+        return view('student');
+    }
+
+    public function isRegistered(Request $r)
+    {
+        $r->validate([
+            'name' => 'required'
+        ]);
+        $t = Ticket::where('name', $r->name)->first();
+        if (is_null($t)) {
+            return 'f';
+        } else {
+            if ($t->valid) {
+                return 't';
+            } else {
+                return route('pay', ['id' => $t->id]);
+            }
+        }
+        return (int)!is_null($t);
     }
 }

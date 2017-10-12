@@ -138,7 +138,21 @@
             Même si vous payez par chèque, cliquez sur "Acheter" pour réserver une place.<br><br>
         </p>
         <h3>Il reste : <b>{{$places}}</b> places.</h3>
-        <div class="col-md-4 col-sm-6 col-md-offset-2">
+        <div class="col-md-4 col-sm-12">
+            <h3>Tarif étudiant</h3>
+            <p class="price">15€</p>
+            <p>Réservé aux étudiants</p>
+            @if ($canBuy)
+                <button data-toggle="modal" data-target="#studentModal" class="btn btn-lg btn-red">
+                    ACHETER
+                </button>
+            @else
+                <button disabled class="btn btn-lg btn-red">
+                    ACHETER
+                </button>
+            @endif
+        </div>
+        <div class="col-md-4 col-sm-12">
             <h3>Tarif réduit</h3>
             <p class="price">25€</p>
             <p>Membres de K'Rément Libre,<br>Ozérim ou Code2be</p>
@@ -152,7 +166,7 @@
                 </button>
             @endif
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4 col-sm-12">
             <h3>Plein tarif</h3>
             <p class="price">35€</p>
             <p>Non membres</p>
@@ -168,13 +182,15 @@
         </div>
     </div>
     <hr>
-    <h3 class="text-center">
-        Wow, vous voulez une super réduc' sur tous nos évènements et faire partie d'une association
-        super cool qui défend le libre en Vendée ?<br><br>
-        <a href="https://www.krementlibre.org/adherer-ou-soutenir/" target="_blank" class="btn btn-lg btn-red">
-            Rejoignez-nous dès maintenant !
-        </a>
-    </h3>
+    <div class="col-md-12">
+        <h3 class="text-center">
+            Wow, vous voulez une super réduc' sur tous nos évènements et faire partie d'une association
+            super cool qui défend le libre en Vendée ?<br><br>
+            <a href="https://www.krementlibre.org/adherer-ou-soutenir/" target="_blank" class="btn btn-lg btn-red">
+                Rejoignez-nous dès maintenant !
+            </a>
+        </h3>
+    </div>
 </div>
 <!-- End: Tickets -->
 
@@ -363,10 +379,12 @@
 <!-- End: Schedule -->
 <div class="text-center">
     <h4><b>Adresse : 123 Boulevard Louis Blanc, 85000 La Roche-sur-Yon</b></h4><br>
-    <iframe class="center-block" width="800" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+    <iframe class="center-block" width="800" height="350" frameborder="0" scrolling="no" marginheight="0"
+            marginwidth="0"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-1.4371356368064883%2C46.67327851895005%2C-1.434238851070404%2C46.67486861701673&amp;layer=mapnik&amp;marker=46.67407357383165%2C-1.435687243938446"></iframe>
     <br/>
-    <small><a href="https://www.openstreetmap.org/?mlat=46.67407&amp;mlon=-1.43569#map=19/46.67407/-1.43569" target="_blank">Afficher une
+    <small><a href="https://www.openstreetmap.org/?mlat=46.67407&amp;mlon=-1.43569#map=19/46.67407/-1.43569"
+              target="_blank">Afficher une
             carte plus grande</a></small>
     <br>
 </div>
@@ -445,6 +463,36 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        $('form#pay').submit(function (e) {
+            e.preventDefault();
+            $('div#already').hide();
+            var el = $(this);
+            var name = $(this).find('input#name').val();
+            $.post('{{route('isRegistered')}}', {name: name, _token: '{{csrf_token()}}'}, function (data) {
+                if (data == 'f') {
+                    el.unbind().submit();
+                } else if (data == 't') {
+                    $('div#already').show();
+                } else {
+                    window.location.replace(data);
+                }
+            });
+        });
+
+        $('form#student').submit(function (e) {
+            e.preventDefault();
+            $('div#alreadyStudent').hide();
+            var el = $(this);
+            var name = $(this).find('input#name').val();
+            $.post('{{route('isRegistered')}}', {name: name, _token: '{{csrf_token()}}'}, function (data) {
+                if (data == 'f') {
+                    el.unbind().submit();
+                } else if (data == 't') {
+                    $('div#alreadyStudent').show();
+                }
+            });
+        });
+
         $('form#isMember').submit(function (e) {
             $(':input').prop('disabled', true);
             $('div#notMember').hide();
@@ -485,20 +533,22 @@
                     <div id="notMember" class="alert alert-danger text-center" hidden>
                         <i class="fa fa-warning fa-2x"></i><br>
                         Hum, il semblerait que vous ne soyez pas membre de
-                        K'Rément Libre. Si vous êtes un membre et que votre mail n'est pas reconnu, veuillez contacter
+                        K'Rément Libre, Ozérim ou Code2be. Si vous êtes un membre et que votre mail n'est pas reconnu,
+                        veuillez contacter
                         lenaic@lenaic.me.<br>
                         Si vous n'êtes pas membre mais que vous souhaitez vous inscrire,
                         <a href="https://www.krementlibre.org/adherer-ou-soutenir/" target="_blank">cliquez ici</a>.
                     </div>
                     Afin de vous inscrire à ce prix là, nous devons vérifier si vous êtes bien un membre de K'Rément
-                    Libre.<br>
+                    Libre, Ozérim ou Code2be.<br>
                     Merci de bien vouloir entrer l'adresse e-mail avec laquelle vous vous êtes inscris chez nous :
-                    <input class="form-control" type="email" id="emailForMemberVerify" placeholder="moi@domaine.fr"
+                    <input class="form-control" type="email" id="emailForMemberVerify" name="email"
+                           placeholder="moi@domaine.fr"
                            required/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <button class="btn btn-primary">Valider</button>
+                    <button type="button" class="btn btn-primary">Valider</button>
                 </div>
             </form>
         </div>
@@ -514,34 +564,89 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel">Achat de ticket</h4>
             </div>
-            <form action="{{route('prePay')}}" method="POST">
-                {{csrf_field()}}
+            <form action="{{route('prePay')}}" id="pay" method="POST">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Votre nom et prénom :*</label>
-                        <input type="text" name="name" id="name" class="form-control" required>
+                    <div id="already" class="alert alert-danger text-center" hidden>
+                        <i class="fa fa-warning fa-2x"></i><br>
+                        <b>Hum, il semblerait que vous soyez déjà inscrit.</b>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Votre e-mail :*</label>
-                        <input type="email" name="email" id="email" class="form-control" required>
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Votre nom et prénom :*</label>
+                            <input type="text" name="name" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre e-mail :*</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="payment" id="payment1" value="1" required>
+                                Payer maintenant par carte via Stripe
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="payment" id="payment2" value="2" required>
+                                Payer au Workshop par chèque
+                            </label>
+                        </div>
                     </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="payment" id="payment1" value="1" required>
-                            Payer maintenant par carte via Stripe
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="payment" id="payment2" value="2" required>
-                            Payer au Workshop par chèque
-                        </label>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <button class="btn btn-success">Valider</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <button class="btn btn-success">Valider</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Student Modal -->
+<div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Réservation étudiants</h4>
+            </div>
+            <div class="alert alert-info text-center" role="alert">
+                <i class="fa fa-info-circle fa-2x"></i><br>
+                K'Rément Libre propose aux étudiants de participer à nos évènements avec une réduction
+                tant que vous présentez une justification officielle (carte d'étudiant, certificat de scolarité etc.).
+                Vous serez amené à payer au Workshop par carte, ou par chèque en présentant, nous vous le rapellons,
+                un justificatif de votre statut d'étudiant.
+            </div>
+            <form action="{{route('student')}}" id="student" method="POST">
+                <div id="alreadyStudent" class="alert alert-danger text-center" hidden>
+                    <i class="fa fa-warning fa-2x"></i><br>
+                    <b>Hum, il semblerait que vous soyez déjà inscrit.</b>
                 </div>
+                <div class="modal-body">
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Votre nom et prénom :*</label>
+                            <input type="text" name="name" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre e-mail :*</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" required>
+                                Je jure être un étudiant et je m'engage à présenter un justificatif officiel lors du
+                                Workshop
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                        <button class="btn btn-success">Valider</button>
+                    </div>
             </form>
         </div>
     </div>

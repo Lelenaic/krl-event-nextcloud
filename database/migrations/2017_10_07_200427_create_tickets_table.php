@@ -17,8 +17,8 @@ class CreateTicketsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->boolean('card')->default(true);
-            $table->boolean('reduced')->default(false);
+            $table->boolean('card')->default(true)->nullable();
+            $table->boolean('reduced')->default(false)->nullable();
             $table->boolean('valid')->default(false);
             $table->timestamps();
         });
