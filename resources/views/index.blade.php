@@ -134,8 +134,8 @@
     <div class="row me-row content-ct">
         <h2 class="row-title">Acheter des tickets</h2>
         <p>
-            Vous pouvez payer par carte en ligne ou par chèque à l'arrivée au Workshop.<br>
-            Même si vous payez par chèque, cliquez sur "Acheter" pour réserver une place.<br><br>
+            Vous pouvez payer par carte en ligne ou au Workshop (carte, chèque, liquide).<br>
+            Même si vous payez au Workshop, cliquez sur "Acheter" pour réserver une place.<br><br>
         </p>
         <h3>Il reste : <b>{{$places}}</b> places.</h3>
         <div class="col-md-4 col-sm-12">
@@ -589,7 +589,7 @@
                         <div class="radio">
                             <label>
                                 <input type="radio" name="payment" id="payment2" value="2" required>
-                                Payer au Workshop par chèque
+                                Payer au Workshop (carte, chèque, liquide)
                             </label>
                         </div>
                     </div>
@@ -616,7 +616,7 @@
                 <i class="fa fa-info-circle fa-2x"></i><br>
                 K'Rément Libre propose aux étudiants de participer à nos évènements avec une réduction
                 tant que vous présentez une justification officielle (carte d'étudiant, certificat de scolarité etc.).
-                Vous serez amené à payer au Workshop par carte, ou par chèque en présentant, nous vous le rapellons,
+                Vous serez amené à payer au Workshop par carte, ou par chèque/liquide en présentant, nous vous le rapellons,
                 un justificatif de votre statut d'étudiant.
             </div>
             <form action="{{route('student')}}" id="student" method="POST">
