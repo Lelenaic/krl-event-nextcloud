@@ -80,7 +80,7 @@
             <span class="fa fa-eye"></span>
             <h3>Vous n'avez rien à cacher</h3>
             <p>
-                Comme tout le monde, vous n'avez à cacher.<br>Enfin, presque ...
+                Comme tout le monde, vous n'avez rien à cacher.<br>Enfin, presque ...
             </p>
         </div>
         <div class="col-md-4 feature">
@@ -183,8 +183,9 @@
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">19h00</h4>
-                                    <h5>Débat</h5>
-                                    <p>Débat autour du film et des domaines concernés.</p>
+                                    <h5>Accueil</h5>
+                                    <p>Un temps d'accueil pour valider vos tickets et discuter
+                                        avant le début de la projection.</p>
                                 </div>
                             </div>
                         </div>
