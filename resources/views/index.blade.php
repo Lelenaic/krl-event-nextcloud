@@ -114,16 +114,7 @@
                 richesses et votre solvabilité? Marc Meillassoux et Mihaela Gladovic ont fait l'expérience en hackant
                 l'Iphone et l'IMac d'un jeune artiste n'ayant « rien à cacher » pendant un mois. Un hacker et une
                 analyste ont pour mission de deviner qui est ce jeune homme et s'il n'a véritablement "rien à cacher".
-                Celui-ci est loin de se douter où l’expérience va le mener...
-            </p>
-            <ul class="speaker-social">
-                <li><a href="https://www.facebook.com/hisyl.fr/" target="_blank"><span
-                                class="fa fa-facebook"></span></a></li>
-                <li><a href="https://twitter.com/EIRL_Hisyl" target="_blank"><span class="fa fa-twitter"></span></a>
-                </li>
-                <li><a href="https://fr.linkedin.com/in/guillaume-cheramy-01039226" target="_blank"><span
-                                class="fa fa-linkedin"></span></a></li>
-            </ul>
+                Ce
         </div>
     </div>
     <!-- End: Speakers -->
