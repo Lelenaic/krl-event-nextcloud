@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>K'rement Libre - Paiement</title>
+    <title>K'rement Libre - Terminé</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -24,12 +24,14 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Paiement au Workshop</h3>
+                    <h3 class="panel-title">Inscription à la projection</h3>
                 </div>
                 <div class="panel-body text-center">
                     <div class="alert alert-success" role="alert">
                         Merci pour votre inscription, vous allez recevoir un mail de confirmation.
-                        Il contient quelques instructions, merci d'en prendre connaissance.
+                        Il contient quelques instructions, merci d'en prendre connaissance. <br>
+                        Il contient aussi un flash à apporter (impression, ou sur Smartphone) le jour de l'évènement.
+                        Il permet de vérifier que vous êtes bien inscrit.
                     </div>
                 </div>
             </div>

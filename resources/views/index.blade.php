@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Inscription au Workshop Docker de K'Rément Libre">
     <meta name="author" content="Lénaïc Grolleau">
-    <title>K'Rément Libre - Workshop Docker</title>
+    <title>K'Rément Libre - Projection de Nothing To Hide</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,13 +36,13 @@
         </li>
         <li>
             <a href="#speakers" class="page-scroll">
-                <span class="menu-title">Intervenant</span>
+                <span class="menu-title">Le film</span>
                 <span class="dot"></span>
             </a>
         </li>
         <li>
             <a href="#tickets" class="page-scroll">
-                <span class="menu-title">Tickets</span>
+                <span class="menu-title">Inscription</span>
                 <span class="dot"></span>
             </a>
         </li>
@@ -59,15 +59,15 @@
     <div class="row hero-header" id="home">
         <div class="col-md-7">
             <h1 class="logo">K'Rément Libre</h1>
-            <h1>Workshop Docker 2017</h1>
-            <h3>Apprenez à utiliser Docker comme un atout dans votre travail</h3>
-            <h4>Le samedi 04 Novembre 2017 à la Loco numérique</h4>
-            <a href="#tickets" class="btn btn-lg btn-red page-scroll">ACHETER DES TICKETS <span
+            <h1>Projection Nothing To Hide</h1>
+            <h3>Projection du film et débat suivi d'une galette</h3>
+            <h4>Le jeudi 18 janvier 2018 à la Loco numérique</h4>
+            <a href="#tickets" class="btn btn-lg btn-red page-scroll">S'INSCRIRE GRATUITEMENT <span
                         class="fa fa-arrow-right"></span></a>
 
         </div>
         <div class="col-md-5 hidden-xs">
-            <img src="/img/docker.png" class="rocket animated bounce">
+            <img src="/img/poster.jpg" width="80%" class="rocket animated bounce">
         </div>
     </div>
     <!-- End: Header -->
@@ -77,28 +77,25 @@
     <div class="row me-row content-ct">
         <h2 class="row-title">Pourquoi cet évènement est-il super cool ?</h2>
         <div class="col-md-4 feature">
-            <span class="ti-ticket"></span>
-            <h3>Docker est pour tout le monde</h3>
+            <span class="fa fa-eye"></span>
+            <h3>Vous n'avez rien à cacher</h3>
             <p>
-                Ne vous méprenez pas, que vous soyez administrateur système/réseau ou développeur,
-                vous avez tous besoin de Docker. Vous y trouverez forcément une utilité.
+                Comme tout le monde, vous n'avez à cacher.<br>Enfin, presque ...
             </p>
         </div>
         <div class="col-md-4 feature">
-            <span class="ti-microphone"></span>
-            <h3>Intervenant expert</h3>
+            <span class="fa fa-film"></span>
+            <h3>Un documentaire dans son temps</h3>
             <p>
-                Notre intervenant est un professionel et utilise cette technologie au quotidien dans son entreprise.
-                Il pourraît <span style="font-size: 0.6em;">probablement</span> même faire tourner Docker sur un
-                grille-pain.
+                Nous vous proposons un documentaire qui ne peut pas tomber mieux. La situation actuelle est d'autant
+                plus propice à se demander ce que les autres savent de nous.
             </p>
         </div>
         <div class="col-md-4 feature">
-            <span class="ti-world"></span>
-            <h3>Parce que vous serez là</h3>
+            <span class="fa fa-money"></span>
+            <h3>Et puis bon c'est gratuit</h3>
             <p>
-                Après tout, c'est pour vous que l'on fait ça.<br>
-                Si vous ne venez pas, c'est pas génial génial ...
+                Voir un film gratuitement et se faire payer à boire, c'est pas génial ?
             </p>
         </div>
     </div>
@@ -106,15 +103,18 @@
     <hr>
     <!-- Start: Speakers -->
     <div class="row me-row content-ct speaker" id="speakers">
-        <h2 class="row-title">Notre intervenant</h2>
+        <h2 class="row-title">Le documentaire</h2>
         <div class="col-md-12">
-            <img src="/img/guillaume.png" class="speaker-img">
-            <h3>Guillaume CHÉRAMY</h3>
+            <img src="/img/video-camera.png">
+            <h3>Nothing To Hide</h3>
             <p>
-                Patron d'une entreprise d'hébergement et d'infogérence libre, Président de l'association K'Rément Libre
-                et Professeur à ses heures perdues, rien que ça. Guillaume vous fera découvrir le merveilleux monde
-                de la conteneurisation.
-                Il vous transmettra son savoir dans ce Workshop passionant et instructif.
+                Êtes-vous vraiment sûr de n'avoir "rien à cacher"?
+                Que peuvent savoir Facebook ou Google de vous en seulement 30 jours? Votre orientation sexuelle? Vos
+                heures de lever et de coucher? Votre consommation d'alcool et vos infractions pénales? Votre niveau de
+                richesses et votre solvabilité? Marc Meillassoux et Mihaela Gladovic ont fait l'expérience en hackant
+                l'Iphone et l'IMac d'un jeune artiste n'ayant « rien à cacher » pendant un mois. Un hacker et une
+                analyste ont pour mission de deviner qui est ce jeune homme et s'il n'a véritablement "rien à cacher".
+                Celui-ci est loin de se douter où l’expérience va le mener...
             </p>
             <ul class="speaker-social">
                 <li><a href="https://www.facebook.com/hisyl.fr/" target="_blank"><span
@@ -132,51 +132,22 @@
 <!-- Start: Tickets -->
 <div class="container-fluid tickets" id="tickets">
     <div class="row me-row content-ct">
-        <h2 class="row-title">Acheter des tickets</h2>
+        <h2 class="row-title">Inscription</h2>
         <p>
-            Vous pouvez payer par carte en ligne ou au Workshop (carte, chèque, liquide).<br>
-            Même si vous payez au Workshop, cliquez sur "Acheter" pour réserver une place.<br><br>
+            L'inscription est entièrement gratuite, et anonyme si vous le souhaitez.<br><br>
         </p>
         <h3>Il reste : <b>{{$places}}</b> places.</h3>
-        <div class="col-md-4 col-sm-12">
-            <h3>Tarif étudiant</h3>
-            <p class="price">15€</p>
-            <p>Réservé aux étudiants</p>
+        <div class="col-md-12">
+            <h3>Ticket simple</h3>
+            <p class="price">0€</p>
+            <p>Pour tout le monde</p>
             @if ($canBuy)
-                <button data-toggle="modal" data-target="#studentModal" class="btn btn-lg btn-red">
-                    ACHETER
+                <button data-toggle="modal" data-target="#register" class="btn btn-lg btn-red">
+                    S'INSCRIRE
                 </button>
             @else
                 <button disabled class="btn btn-lg btn-red">
-                    ACHETER
-                </button>
-            @endif
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <h3>Tarif réduit</h3>
-            <p class="price">25€</p>
-            <p>Membres de K'Rément Libre,<br>Ozérim ou Code2be</p>
-            @if ($canBuy)
-                <button data-toggle="modal" data-target="#reducedPrice" class="btn btn-lg btn-red">
-                    ACHETER
-                </button>
-            @else
-                <button disabled class="btn btn-lg btn-red">
-                    ACHETER
-                </button>
-            @endif
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <h3>Plein tarif</h3>
-            <p class="price">35€</p>
-            <p>Non membres</p>
-            @if ($canBuy)
-                <button data-toggle="modal" data-target="#payModal" onclick="pay()" class="btn btn-lg btn-red">
-                    ACHETER
-                </button>
-            @else
-                <button disabled class="btn btn-lg btn-red">
-                    ACHETER
+                    S'INSCRIRE
                 </button>
             @endif
         </div>
@@ -197,18 +168,13 @@
 <!-- Start: Schedule -->
 <div class="container">
     <div class="row me-row schedule" id="schedule">
-        <h2 class="row-title content-ct">Déroulement de la journée</h2>
+        <h2 class="row-title content-ct">Déroulement de la séance</h2>
         <div class="col-md-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
                     <a href="#morning" aria-controls="home" role="tab" data-toggle="tab">
-                        Déroulement de la matinée
-                    </a>
-                </li>
-                <li role="presentation">
-                    <a href="#afternoon" aria-controls="home" role="tab" data-toggle="tab">
-                        Déroulement de l'après-midi
+                        Déroulement de la soirée
                     </a>
                 </li>
             </ul>
@@ -221,13 +187,13 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" src="/img/coffee.png" alt="Coffee">
+                                        <img class="media-object" src="/img/chat.png" alt="Débat">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">08h30 - 9h00</h4>
-                                    <h5>Café d'accueil</h5>
-                                    <p>Nous vous proposerons un café pour vous préparer à cette grosse journée.</p>
+                                    <h4 class="media-heading">19h00</h4>
+                                    <h5>Débat</h5>
+                                    <p>Débat autour du film et des domaines concernés.</p>
                                 </div>
                             </div>
                         </div>
@@ -235,15 +201,14 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" src="/img/install.png" alt="Install">
+                                        <img class="media-object" src="/img/popcorn.png" alt="Popcorn">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">09h00 - 10h30</h4>
-                                    <h5>Débuter avec Docker</h5>
+                                    <h4 class="media-heading">19h30</h4>
+                                    <h5>Début de projection</h5>
                                     <p>
-                                        Installation et premières commandes sont au programme.
-                                        Vous apprendrez ici la base de Docker pour la suite du Workshop.
+                                        Début de la projection du film.
                                     </p>
                                 </div>
                             </div>
@@ -252,29 +217,15 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" src="/img/tea.png" alt="Tea">
+                                        <img class="media-object" src="/img/talk.png" alt="Parler">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">10h30 - 10h45</h4>
-                                    <h5>Pause</h5>
-                                    <p>Après ce départ en trombe, il va falloir souffler un peu.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/whale.png" alt="Whale">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">10h45 - 12h30</h4>
-                                    <h5>Utilisation de base</h5>
+                                    <h4 class="media-heading">21h00</h4>
+                                    <h5>Présentation des associations et débat</h5>
                                     <p>
-                                        Dans cette partie, utilisation des principes et outils de base de Docker,
-                                        comme les Images, le registre, les volumes ou encore le réseau.
+                                        Nous allons présenter les associations organisatrices et discuter du
+                                        documentaire.
                                     </p>
                                 </div>
                             </div>
@@ -283,88 +234,14 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" src="/img/eat.png" alt="Eat">
+                                        <img class="media-object" src="/img/wafer.png" alt="Galette">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">12h30 - 14h00</h4>
-                                    <h5>Pause déjeuner</h5>
+                                    <h4 class="media-heading">21h30</h4>
+                                    <h5>Galette & cidre</h5>
                                     <p>
-                                        Après une matinée bien remplie, un bon repas équilibré pour repartir d'aplomb
-                                        l'après-midi.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="afternoon">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/whale2.png" alt="Whale">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">14h00 - 15h00</h4>
-                                    <h5>Gérer des conteneurs avec une interface</h5>
-                                    <p>
-                                        Et oui Docker ce n'est pas que des lignes de commandes.
-                                        Des outils existent pour faciliter la gestion de vos conteneurs, graphiquement.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/compose.png" alt="Compose">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">15H00 - 16H30</h4>
-                                    <h5>Docker Compose</h5>
-                                    <p>
-                                        Docker Compose est un outil de mise en place d'applications multi-conteneurs.
-                                        Vous apprendrez ici à l'utiliser.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/question.png" alt="Question">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">16H30 - 17H00</h4>
-                                    <h5>Gardons du temps</h5>
-                                    <p>
-                                        Nous conservons du temps pour des questions, ou si une activité dûre plus
-                                        longtemps.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/diploma.png" alt="End">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">17H00</h4>
-                                    <h5>Fin</h5>
-                                    <p>
-                                        Fin de ce Workshop vers 17H00, sauf si vous êtes passionnés, il pourrait y avoir
-                                        du retard ;)<br>
-                                        Vous serez déjà des pros sur Docker !
+                                        Passons un moment convivial autour d'une part de galette et du cidre.
                                     </p>
                                 </div>
                             </div>
@@ -441,7 +318,8 @@
     </div>
     <div class="row footer-credit">
         <div class="col-md-6 col-sm-6">
-            <p>&copy 2017 <a href="https:/krementlibre.org">K'Rément Libre</a> | Sous Licence Apache 2.0.</p>
+            <p>&copy 2017 <a href="https:/krementlibre.org">K'Rément Libre</a> | Sous Licence Apache 2.0. | Pictures from <a
+                        href="https://www.flaticon.com" target="_blank">Flaticon</a> | NOTHING TO HIDE Novembre 2016 © Marc Meillassoux & Mihaela Gladovic</p>
         </div>
         <div class="col-md-6 col-sm-6">
             <ul class="footer-menu">
@@ -463,190 +341,62 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('form#pay').submit(function (e) {
-            e.preventDefault();
-            $('div#already').hide();
-            var el = $(this);
-            var name = $(this).find('input#name').val();
-            $.post('{{route('isRegistered')}}', {name: name, _token: '{{csrf_token()}}'}, function (data) {
-                if (data == 'f') {
-                    el.unbind().submit();
-                } else if (data == 't') {
-                    $('div#already').show();
-                } else {
-                    window.location.replace(data);
-                }
-            });
-        });
-
-        $('form#student').submit(function (e) {
-            e.preventDefault();
-            $('div#alreadyStudent').hide();
-            var el = $(this);
-            var name = $(this).find('input#name').val();
-            $.post('{{route('isRegistered')}}', {name: name, _token: '{{csrf_token()}}'}, function (data) {
-                if (data == 'f') {
-                    el.unbind().submit();
-                } else if (data == 't') {
-                    $('div#alreadyStudent').show();
-                }
-            });
-        });
-
-        $('form#isMember').submit(function (e) {
-            $(':input').prop('disabled', true);
-            $('div#notMember').hide();
-            e.preventDefault();
-            var email = $('input#emailForMemberVerify').val();
-            $.post('{{route('isMember')}}', {email: email, _token: '{{csrf_token()}}'}, function (data) {
-                var response = $.parseJSON(data);
-                $(':input').prop('disabled', false);
-                if (data !== '0') {
-                    $('input#email').val(email).prop('readonly', true);
-                    $('input#name').val(response.name).prop('readonly', true);
-                    $('div#reducedPrice').modal('hide');
-                    $('div#payModal').modal('show');
-                } else {
-                    $('div#notMember').show();
-                }
-            });
+        $('input#anonymous').change(function () {
+            if ($(this).is(':checked')) {
+                $('div#nameGroup').hide().find(':input').prop('disabled', true);
+            } else {
+                $('div#nameGroup').show().find(':input').prop('disabled', false);
+            }
         });
     });
-
-    function pay() {
-        $('form#pay').show();
-        $('form#pay-reduced').hide();
-    }
 </script>
 
-<!-- Reduced price inscription Modal -->
-<div class="modal fade" id="reducedPrice" tabindex="-1" role="dialog" aria-labelledby="reducedPrice">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Vérification de membre</h4>
-            </div>
-            <form id="isMember">
-                <div class="modal-body">
-                    <div id="notMember" class="alert alert-danger text-center" hidden>
-                        <i class="fa fa-warning fa-2x"></i><br>
-                        Hum, il semblerait que vous ne soyez pas membre de
-                        K'Rément Libre, Ozérim ou Code2be. Si vous êtes un membre et que votre mail n'est pas reconnu,
-                        veuillez contacter
-                        lenaic@lenaic.me.<br>
-                        Si vous n'êtes pas membre mais que vous souhaitez vous inscrire,
-                        <a href="https://www.krementlibre.org/adherer-ou-soutenir/" target="_blank">cliquez ici</a>.
-                    </div>
-                    Afin de vous inscrire à ce prix là, nous devons vérifier si vous êtes bien un membre de K'Rément
-                    Libre, Ozérim ou Code2be.<br>
-                    Merci de bien vouloir entrer l'adresse e-mail avec laquelle vous vous êtes inscris chez nous :
-                    <input class="form-control" type="email" id="emailForMemberVerify" name="email"
-                           placeholder="moi@domaine.fr"
-                           required/>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary">Valider</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
-<!-- Payment Modal -->
-<div class="modal fade" id="payModal" tabindex="-1" role="dialog" aria-labelledby="payModal">
+<!-- Registration Modal -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="payModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">Achat de ticket</h4>
+                <h4 class="modal-title" id="myModalLabel">Inscription</h4>
             </div>
-            <form action="{{route('prePay')}}" id="pay" method="POST">
-                <div class="modal-body">
-                    <div id="already" class="alert alert-danger text-center" hidden>
-                        <i class="fa fa-warning fa-2x"></i><br>
-                        <b>Hum, il semblerait que vous soyez déjà inscrit.</b>
-                    </div>
-                    {{csrf_field()}}
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="name">Votre nom et prénom :*</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Votre e-mail :*</label>
-                            <input type="email" name="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="payment" id="payment1" value="1" required>
-                                Payer maintenant par carte via Stripe
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="payment" id="payment2" value="2" required>
-                                Payer au Workshop (carte, chèque, liquide)
-                            </label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                        <button class="btn btn-success">Valider</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Student Modal -->
-<div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Réservation étudiants</h4>
-            </div>
-            <div class="alert alert-info text-center" role="alert">
-                <i class="fa fa-info-circle fa-2x"></i><br>
-                K'Rément Libre propose aux étudiants de participer à nos évènements avec une réduction
-                tant que vous présentez une justification officielle (carte d'étudiant, certificat de scolarité etc.).
-                Vous serez amené à payer au Workshop par carte, ou par chèque/liquide en présentant, nous vous le rapellons,
-                un justificatif de votre statut d'étudiant.
-            </div>
-            <form action="{{route('student')}}" id="student" method="POST">
-                <div id="alreadyStudent" class="alert alert-danger text-center" hidden>
-                    <i class="fa fa-warning fa-2x"></i><br>
-                    <b>Hum, il semblerait que vous soyez déjà inscrit.</b>
-                </div>
+            <form action="{{route('register')}}" id="register" method="POST">
                 <div class="modal-body">
                     {{csrf_field()}}
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="name">Votre nom et prénom :*</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Votre e-mail :*</label>
-                            <input type="email" name="email" id="email" class="form-control" required>
-                        </div>
                         <div class="checkbox">
-                            <label>
-                                <input type="checkbox" required>
-                                Je jure être un étudiant et je m'engage à présenter un justificatif officiel lors du
-                                Workshop
+                            <label for="anonymous">
+                                <input type="checkbox" value="1" name="anonymous" id="anonymous">
+                                Je souhaite être inscris anonymement.
                             </label>
+                        </div>
+                        <div class="alert alert-info" role="alert" id="anonymousAlert">
+                            <i class="fa fa-info-circle"></i> Une inscription anonyme signifie que nous ne conservons
+                            ni votre adresse IP, ni e-mail. Nous devons vous la demander pour au moins vous envoyer
+                            votre ticket.
+                            Même les webmasters et administrateurs de K'Rément Libre ne sauront pas qui vous êtes.
+                        </div>
+                        <hr>
+                        <div class="alert alert-info text-center" role="alert">
+                            <i class="fa fa-info-circle fa-2x"></i><br>
+                            Dans tous les cas, vos informations personnelles ne seront jamais divulguées à un
+                            tiers ni utilisées à des fins de suivis ou commerciaux.
+                        </div>
+                        <div class="form-group" id="nameGroup">
+                            <label for="name">Votre nom et prénom :*</label>
+                            <input type="text" name="name" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre e-mail :*</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
                         <button class="btn btn-success">Valider</button>
                     </div>
+                </div>
             </form>
         </div>
     </div>

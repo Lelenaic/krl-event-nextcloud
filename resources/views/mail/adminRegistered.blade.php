@@ -1,12 +1,9 @@
-Nouvelle inscription au Workshop Docker :<br>
-Nom : {{$ticket->name}}<br>
-Mail : {{$ticket->email}}<br>
-@if (!is_null($ticket->card))
-    Moyen de paiement : {{$ticket->card?'Carte':'Chèque'}}<br>
-    Tarif réduit : {{$ticket->reduced ? 'Oui':'Non'}}<br>
-    @if($ticket->card)
-        Numéro de transaction : {{$number}}
-    @endif
+Nouvelle inscription à la projection Nothing to Hide :<br>
+@if(is_null($ticket->name))
+    L'utilisateur ayant choisi une inscription anonyme, aucun détail ne peut vous être transmis.
 @else
-    <b>INSCRIPTION EN TANT QU'ETUDIANT</b>
+    Nom : {{$ticket->name}}<br>
+    Mail : {{$ticket->email}}<br>
 @endif
+<br><br>
+Il y a désormais {{\App\Ticket::all()->count()}} inscriptions.

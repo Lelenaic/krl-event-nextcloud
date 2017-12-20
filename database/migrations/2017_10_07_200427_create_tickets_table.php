@@ -15,11 +15,9 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email');
-            $table->boolean('card')->default(true)->nullable();
-            $table->boolean('reduced')->default(false)->nullable();
-            $table->boolean('valid')->default(false);
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('number');
             $table->timestamps();
         });
     }
