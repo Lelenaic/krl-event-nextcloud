@@ -18,6 +18,7 @@ class CreateTicketsTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('number');
+            $table->boolean('validated')->default(false);
             $table->timestamps();
         });
     }
