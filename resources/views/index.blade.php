@@ -262,8 +262,7 @@
         <div class="col-md-6 contact-form">
             <h3 class="content-ct"><span class="fa fa-envelope"></span> Contact</h3>
             <p class="text-center">
-                Si vous avez un problème de paiement, une question sur votre paiement, demande d'annulation etc.
-                Contactez lenaic@lenaic.me. Pour le reste (questions Workshop), utilisez le formulaire ci-dessous.
+                Pour toute question sur l'évènement, utilisez le formulaire ci-dessous.
             </p><br>
             <form class="form-horizontal" data-toggle="validator" role="form" method="post"
                   action="{{route('contact')}}">
