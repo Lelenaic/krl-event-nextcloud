@@ -27,7 +27,7 @@ class RegistrationController extends Controller
         $ticket->number = bin2hex(random_bytes(24));
         $ticket->save();
         Mail::to($r->email)->send(new \App\Mail\Ticket($ticket->number));
-        Mail::to('lenaic@lenaic.me')->send(new \App\Mail\AdminRegistered($ticket));
+        Mail::to('contact@krl.lnc.ovh')->send(new \App\Mail\AdminRegistered($ticket));
         return redirect()->route('done');
     }
 
