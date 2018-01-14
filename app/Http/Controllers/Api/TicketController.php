@@ -18,7 +18,7 @@ class TicketController extends Controller
     public function index()
     {
         if (request()->secret != static::API_SECRET) die('Invalid secret');
-        $tickets = Ticket::select('id', 'name', 'validated')->get();
+        $tickets = Ticket::select('id', 'name', 'validated')->orderBy('name')->get();
         return response()->json($tickets);
     }
 
