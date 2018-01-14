@@ -45,7 +45,8 @@ class TicketController extends Controller
             }
             $ticket->validated = true;
             $ticket->save();
-            return response()->json(['success' => true]);
+            $name = is_null($ticket->name) ? 'un utilisateur anonyme' : $ticket->name;
+            return response()->json(['success' => true, 'message' => $name]);
         } else {
             return response()->json(['success' => false, 'message' => 'Le ticket n\'existe pas !']);
         }
