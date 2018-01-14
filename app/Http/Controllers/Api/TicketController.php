@@ -30,6 +30,9 @@ class TicketController extends Controller
      */
     public function validateTicket(Request $r)
     {
+        if (date('d-m')!='18-01'){
+            return response()->json(['success' => false, 'message' => 'Ceci fonctionne le 18 janvier uniquement.']);
+        }
         $r->validate([
             'id' => 'nullable',
             'number' => 'nullable'
