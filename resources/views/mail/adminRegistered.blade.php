@@ -1,4 +1,4 @@
-Nouvelle inscription à la projection Nothing to Hide :<br>
+Nouvelle inscription à la présentation Nextcloud :<br>
 @if(is_null($ticket->name))
     L'utilisateur ayant choisi une inscription anonyme, aucun détail ne peut vous être transmis.
 @else

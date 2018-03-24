@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Inscription au Workshop Docker de K'Rément Libre">
     <meta name="author" content="Lénaïc Grolleau">
-    <title>K'Rément Libre - Projection de Nothing To Hide</title>
+    <title>K'Rément Libre - Nextcloud</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,19 +36,13 @@
         </li>
         <li>
             <a href="#speakers" class="page-scroll">
-                <span class="menu-title">Le film</span>
+                <span class="menu-title">L'intervenant</span>
                 <span class="dot"></span>
             </a>
         </li>
         <li>
             <a href="#tickets" class="page-scroll">
                 <span class="menu-title">Inscription</span>
-                <span class="dot"></span>
-            </a>
-        </li>
-        <li>
-            <a href="#schedule" class="page-scroll">
-                <span class="menu-title">Déroulement</span>
                 <span class="dot"></span>
             </a>
         </li>
@@ -59,43 +53,42 @@
     <div class="row hero-header" id="home">
         <div class="col-md-7">
             <h1 class="logo">K'Rément Libre</h1>
-            <h1>Projection Nothing To Hide</h1>
-            <h3>Projection du film et débat suivi d'une galette</h3>
-            <h4>Le jeudi 18 janvier 2018 à la Loco numérique</h4>
+            <h1>Découverte Nextcloud</h1>
+            <h3>Découverte de Nextcloud et démonstration par Hisyl</h3>
+            <h4>Le jeudi 26 avril 2018 à 18H à la Loco numérique</h4>
             <a href="#tickets" class="btn btn-lg btn-red page-scroll">S'INSCRIRE GRATUITEMENT <span
                         class="fa fa-arrow-right"></span></a>
 
         </div>
         <div class="col-md-5 hidden-xs">
-            <img src="/img/poster.jpg" width="80%" class="rocket animated bounce">
+            <img src="{{asset('img/nextcloud.png')}}" width="80%" class="rocket animated bounce">
         </div>
     </div>
     <!-- End: Header -->
 </div>
 <div class="container">
     <!-- Start: Desc -->
-    <div class="row me-row content-ct">
+    <div class="row me-row content-ct" id="event">
         <h2 class="row-title">Pourquoi cet évènement est-il super cool ?</h2>
         <div class="col-md-4 feature">
-            <span class="fa fa-eye"></span>
-            <h3>Vous n'avez rien à cacher</h3>
+            <span class="fa fa-eye-slash"></span>
+            <h3>Confidentialité</h3>
             <p>
-                Comme tout le monde, vous n'avez rien à cacher.<br>Enfin, presque ...
+                Reprennez le contrôle sur votre vie numérique. Découvrez un outil remplaçant autres Dropbox, Google Drive ou Onedrive.
             </p>
         </div>
         <div class="col-md-4 feature">
-            <span class="fa fa-film"></span>
-            <h3>Un documentaire dans son temps</h3>
+            <span class="fa fa-lock"></span>
+            <h3>Sécurité</h3>
             <p>
-                Nous vous proposons un documentaire qui ne peut pas tomber mieux. La situation actuelle est d'autant
-                plus propice à se demander ce que les autres savent de nous.
+                Vous êtes la seule personne (ou organisation) capable d'accèder au contenu de votre Nextcloud.
             </p>
         </div>
         <div class="col-md-4 feature">
             <span class="fa fa-money"></span>
-            <h3>Et puis bon c'est gratuit</h3>
+            <h3>Un outil Open Source & Gratuit</h3>
             <p>
-                Voir un film gratuitement et se faire payer à boire, c'est pas génial ?
+                Nextcloud est en plus un outil qui n'engendrera pas de frais en plus de l'hébergement.
             </p>
         </div>
     </div>
@@ -103,18 +96,23 @@
     <hr>
     <!-- Start: Speakers -->
     <div class="row me-row content-ct speaker" id="speakers">
-        <h2 class="row-title">Le documentaire</h2>
+        <h2 class="row-title">Notre intervenant</h2>
         <div class="col-md-12">
-            <img src="/img/video-camera.png">
-            <h3>Nothing To Hide</h3>
+            <img src="{{asset('img/guillaume.png')}}" class="speaker-img">
+            <h3>Guillaume CHÉRAMY</h3>
             <p>
-                Êtes-vous vraiment sûr de n'avoir "rien à cacher"?
-                Que peuvent savoir Facebook ou Google de vous en seulement 30 jours? Votre orientation sexuelle? Vos
-                heures de lever et de coucher? Votre consommation d'alcool et vos infractions pénales? Votre niveau de
-                richesses et votre solvabilité? Marc Meillassoux et Mihaela Gladovic ont fait l'expérience en hackant
-                l'Iphone et l'IMac d'un jeune artiste n'ayant « rien à cacher » pendant un mois. Un hacker et une
-                analyste ont pour mission de deviner qui est ce jeune homme et s'il n'a véritablement "rien à cacher".
-                Ce
+                Patron d'une entreprise d'hébergement et d'infogérence libre, Président de l'association K'Rément Libre
+                et Professeur à ses heures perdues, rien que ça. Guillaume utilise Nextcloud quotidiennement dans un
+                environnement professionel et le maîtrise sur le bout des doigts.
+            </p>
+            <ul class="speaker-social">
+                <li><a href="https://www.facebook.com/hisyl.fr/" target="_blank"><span
+                                class="fa fa-facebook"></span></a></li>
+                <li><a href="https://twitter.com/EIRL_Hisyl" target="_blank"><span class="fa fa-twitter"></span></a>
+                </li>
+                <li><a href="https://fr.linkedin.com/in/guillaume-cheramy-01039226" target="_blank"><span
+                                class="fa fa-linkedin"></span></a></li>
+            </ul>
         </div>
     </div>
     <!-- End: Speakers -->
@@ -156,94 +154,6 @@
 </div>
 <!-- End: Tickets -->
 
-<!-- Start: Schedule -->
-<div class="container">
-    <div class="row me-row schedule" id="schedule">
-        <h2 class="row-title content-ct">Déroulement de la séance</h2>
-        <div class="col-md-12">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                    <a href="#morning" aria-controls="home" role="tab" data-toggle="tab">
-                        Déroulement de la soirée
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade in active" id="morning">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/chat.png" alt="Débat">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">19h00</h4>
-                                    <h5>Accueil</h5>
-                                    <p>Un temps d'accueil pour valider vos tickets et discuter
-                                        avant le début de la projection.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/popcorn.png" alt="Popcorn">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">19h30</h4>
-                                    <h5>Début de projection</h5>
-                                    <p>
-                                        Début de la projection du film.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/talk.png" alt="Parler">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">21h00</h4>
-                                    <h5>Présentation des associations et débat</h5>
-                                    <p>
-                                        Nous allons présenter les associations organisatrices et discuter du
-                                        documentaire.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="/img/wafer.png" alt="Galette">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">21h30</h4>
-                                    <h5>Galette & cidre</h5>
-                                    <p>
-                                        Passons un moment convivial autour d'une part de galette et du cidre.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <hr>
 <!-- End: Schedule -->
 <div class="text-center">
@@ -309,8 +219,8 @@
     </div>
     <div class="row footer-credit">
         <div class="col-md-6 col-sm-6">
-            <p>&copy 2017 <a href="https:/krementlibre.org">K'Rément Libre</a> | Sous Licence Apache 2.0. | Pictures from <a
-                        href="https://www.flaticon.com" target="_blank">Flaticon</a> | NOTHING TO HIDE Novembre 2016 © Marc Meillassoux & Mihaela Gladovic</p>
+            <p>&copy 2018 <a href="https:/krementlibre.org">K'Rément Libre</a> | Sous Licence Apache 2.0. | Pictures from <a
+                        href="https://www.flaticon.com" target="_blank">Flaticon</a></p>
         </div>
         <div class="col-md-6 col-sm-6">
             <ul class="footer-menu">

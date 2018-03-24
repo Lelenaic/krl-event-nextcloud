@@ -33,6 +33,6 @@ class AdminRegistered extends Mailable
         return $this->view('mail.adminRegistered')->with([
             'ticket' => $this->_ticket,
         ])->from('no-reply@mail.lenaic.me')
-            ->subject('Inscription projection Nothing to Hide');
+            ->subject('Inscription présentation Nextcloud');
     }
 }

@@ -34,7 +34,7 @@ class Ticket extends Mailable
             'number' => $this->_number
         ])
             ->from('no-reply@mail.lenaic.me')
-            ->subject('Inscription projection Nothing to Hide')
+            ->subject('Inscription présentation Nextcloud')
             ->replyTo('guillaume.cheramy@krementlibre.org');
     }
 }

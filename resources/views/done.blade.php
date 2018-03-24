@@ -24,14 +24,12 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Inscription à la projection</h3>
+                    <h3 class="panel-title">Inscription à l'évènement</h3>
                 </div>
                 <div class="panel-body text-center">
                     <div class="alert alert-success" role="alert">
-                        Merci pour votre inscription, vous allez recevoir un mail de confirmation.
-                        Il contient quelques instructions, merci d'en prendre connaissance. <br>
-                        Il contient aussi un flash à apporter (impression, ou sur Smartphone) le jour de l'évènement.
-                        Il permet de vérifier que vous êtes bien inscrit.
+                        Merci pour votre inscription, vous allez recevoir un mail de confirmation.<br>
+                        A très bientôt sur un de nos évènements.
                     </div>
                 </div>
             </div>
