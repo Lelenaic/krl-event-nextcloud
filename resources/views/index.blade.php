@@ -52,7 +52,7 @@
     <!-- Start: Header -->
     <div class="row hero-header" id="home">
         <div class="col-md-7">
-            <h1 class="logo">K'Rément Libre</h1>
+            <img src="{{asset('img/logo.png')}}" alt="Logo KRL" width="40%">
             <h1>Découverte Nextcloud</h1>
             <h3>Découverte de Nextcloud et démonstration par Hisyl</h3>
             <h4>Le jeudi 26 avril 2018 à 18H à la Loco numérique</h4>
@@ -74,7 +74,8 @@
             <span class="fa fa-eye-slash"></span>
             <h3>Confidentialité</h3>
             <p>
-                Reprennez le contrôle sur votre vie numérique. Découvrez un outil remplaçant autres Dropbox, Google Drive ou Onedrive.
+                Reprennez le contrôle sur votre vie numérique. Découvrez un outil remplaçant autres Dropbox, Google
+                Drive ou Onedrive.
             </p>
         </div>
         <div class="col-md-4 feature">
@@ -218,11 +219,18 @@
         </div>
     </div>
     <div class="row footer-credit">
-        <div class="col-md-6 col-sm-6">
-            <p>&copy 2018 <a href="https:/krementlibre.org">K'Rément Libre</a> | Sous Licence Apache 2.0. | Pictures from <a
+        <div class="col-md-5">
+            <p>&copy 2018 <a href="https://www.krementlibre.org" target="_blank">K'Rément Libre</a> | Sous Licence Apache
+                2.0. | Pictures
+                from <a
                         href="https://www.flaticon.com" target="_blank">Flaticon</a></p>
         </div>
-        <div class="col-md-6 col-sm-6">
+        <div class="col-md-2 text-center">
+            <a href="https://www.krementlibre.org" target="_blank">
+                <img src="{{asset('img/logo_small.png')}}" alt="Small KRL Logo" width="30%">
+            </a>
+        </div>
+        <div class="col-md-5">
             <ul class="footer-menu">
                 <li><a href="https://www.krementlibre.org" target="_blank">Site principal</a></li>
                 <li><a href="https://www.krementlibre.org/contact/" target="_blank">Contact</a></li>
